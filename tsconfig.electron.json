@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+      "outDir": "build",
+      "esModuleInterop": true,
+      "moduleResolution": "Node16",
+      "module": "Node16",
+      "target": "ES6",
+      "types": [],
+      "resolveJsonModule": false, // ESM doesn't yet support JSON modules.
+      "stripInternal": true,
+      "noImplicitReturns": true,
+      "noImplicitOverride": true,
+      "noFallthroughCasesInSwitch": true,
+      "noUncheckedIndexedAccess": true,
+      "noPropertyAccessFromIndexSignature": true,
+      "noEmitOnError": true,
+      "useDefineForClassFields": true,
+      "forceConsistentCasingInFileNames": true,
+      "skipLibCheck": true
+    },
+    "files": [
+      "src/electron/main.ts",
+      "src/electron/preload.ts"
+    ],
+    "include": []
+  }
+  
