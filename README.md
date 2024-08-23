@@ -1,6 +1,6 @@
-# ElectronTypescriptAngular
+# electron-typescript-angular
 
-This project was generated with Angular CLI, Electron, Typescript, Electron Builder
+Really simple ELectron + Typescript + Angular boilerplate.
 
 ## Development
 
@@ -9,3 +9,5 @@ Run `npm run start` and `npm run electron-start` simultaneously to use it for de
 ## Build
 
 Run `npm run electron-package` to build Angular+Electron dist uing Electron Builder.
+
+Note: Don't forget to change appId in package.json.
