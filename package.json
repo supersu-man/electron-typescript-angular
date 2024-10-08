@@ -6,9 +6,9 @@
     "ng": "ng",
     "start": "ng serve",
     "electron-start": "npm run electron-build && electron ./build/main.js --dev",
-    "build": "ng build --base-href",
+    "angular-build": "ng build --base-href",
     "electron-build": "tsc --project tsconfig.electron.json",
-    "electron-package": "npm run build && npm run electron-build && npx electron-builder"
+    "electron-package": "npm run angular-build && npm run electron-build && npx electron-builder --publish never"
   },
   "private": true,
   "dependencies": {
