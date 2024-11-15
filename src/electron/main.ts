@@ -18,9 +18,10 @@ function createWindow() {
   mainWindow = new BrowserWindow({
     height: 600,
     width: 800,
+    icon: path.join(__dirname, assetsPath + '/favicon.ico'),
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
-    },
+    }
   });
   mainWindow.removeMenu()
 
@@ -43,10 +44,10 @@ function createUpdateWindow() {
     resizable: false,
     closable: false,
     alwaysOnTop: true,
+    icon: path.join(__dirname, assetsPath + '/favicon.ico'),
     webPreferences: {
       preload: path.join(__dirname, 'preload.js')
-    },
-    icon: path.join(__dirname, assetsPath + '/icon.png')
+    }
   });
   updateWindow.removeMenu()
 
