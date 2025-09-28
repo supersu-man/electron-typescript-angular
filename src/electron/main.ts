@@ -1,36 +1,26 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
-import path from 'path';
-import url from 'url';
+import { getAppUrl, getAssetUrl, resolveElectronPath } from './utility';
 
 
 let mainWindow: Electron.BrowserWindow;
 let updateWindow: Electron.BrowserWindow;
 
-const assetsPath = process.argv.includes('--dev') ? '../src/assets' : 'browser/assets'
-const indexUrl = url.format({
-  pathname: path.join(__dirname, 'browser/index.html'),
-  protocol: 'file',
-  slashes: true,
-  hash: '#'
-})
+
 
 function createWindow() {
   mainWindow = new BrowserWindow({
     height: 600,
     width: 800,
-    icon: path.join(__dirname, assetsPath + '/favicon.ico'),
+    icon: getAssetUrl('favicon.ico'),
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
+      preload: resolveElectronPath('preload.js')
     }
   });
   mainWindow.removeMenu()
 
-  if(process.argv.includes('--dev')) {
-    mainWindow.loadURL('http://localhost:4200/#')
-    mainWindow.webContents.openDevTools()
-  } else {
-    mainWindow.loadURL(indexUrl)
-  }
+  const route = getAppUrl()
+
+  mainWindow.loadURL(route)
 
   mainWindow.on('closed', () => {
     mainWindow.destroy()
@@ -44,19 +34,15 @@ function createUpdateWindow() {
     resizable: false,
     closable: false,
     alwaysOnTop: true,
-    icon: path.join(__dirname, assetsPath + '/favicon.ico'),
+    icon: getAssetUrl("favicon.ico"),
     webPreferences: {
-      preload: path.join(__dirname, 'preload.js')
+      preload: resolveElectronPath('preload.js')
     }
   });
   updateWindow.removeMenu()
 
-  if(process.argv.includes('--dev')) {
-    updateWindow.loadURL('http://localhost:4200/#/update')
-    // updateWindow.webContents.openDevTools()
-  } else {
-    updateWindow.loadURL(indexUrl + '/update')
-  }
+  const route = getAppUrl('update')
+  updateWindow.loadURL(route)
 
   updateWindow.on('closed', () => {
     updateWindow.destroy()

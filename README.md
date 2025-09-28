@@ -4,7 +4,7 @@ Really simple ELectron + Typescript + Angular boilerplate.
 
 ## Development
 
-Run `npm run start` and `npm run electron-start` simultaneously to use it for development. Angular live reload works as expected. Electron code changes need rebuild.
+Run `npm run angular-start` and `npm run electron-start` simultaneously to use it for development. Angular live reload works as expected. Electron code changes need rebuild.
 
 ## Build
 

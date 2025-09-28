@@ -4,7 +4,7 @@
   "main": "build/main.js",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "angular-start": "ng serve",
     "electron-start": "npm run electron-build && electron ./build/main.js --dev",
     "angular-build": "ng build --base-href",
     "electron-build": "tsc --project tsconfig.electron.json",
